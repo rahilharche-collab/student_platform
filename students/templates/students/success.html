@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Student Space</title>
+    <link rel="stylesheet" href="{% static 'students/styles.css' %}">
+</head>
+<body class="home-page">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+   <img src="{% static 'students/school_logo.png' %}" alt="School Logo" class="school-logo">
+      
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Personal Information</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <header>
+    <img src="{% static 'students/school_logo.png' %}" alt="School Logo" class="school-logo">
+</header>
+
+        <h1 class="welcome-title">Thank you for your registration</h1>
+    </div>
+</body>
+</html>

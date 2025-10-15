@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #e0f0ff, #f5e8ff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      background: #002b5b;
+      color: white;
+      height: 100vh;
+      padding: 30px 15px;
+    }
+    .sidebar img {
+      width: 100px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+    .sidebar h2 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .sidebar a:hover {
+      background: #00b4d8;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 40px;
+      position: relative;
+    }
+
+    /* Logo at top-left */
+    .top-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+    }
+
+    /* Animated welcome text */
+    .welcome {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-bottom: 40px;
+      animation: fadeSlide 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0.4; transform: translateY(-10px); color: #0077b6; }
+      100% { opacity: 1; transform: translateY(10px); color: #5a189a; }
+    }
+
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    button {
+      background: linear-gradient(90deg, #0077b6, #5a189a);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #5a189a, #0077b6);
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+  <img src="{% static 'students/school_logo.png' %}" alt="School Logo">
+  <h2>Menu</h2>
+  <a href="#">Home</a>
+  <a href="#">Personal Information</a>
+  <a href="#">About Us</a>
+</div>
+
+
+<!-- Main section -->
+<div class="main">
+  <div class="welcome">Welcome to the Student Space</div>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <label for="id_first_name">First name:</label>
+    {{ form.first_name }}
+
+    <label for="id_last_name">Last name:</label>
+    {{ form.last_name }}
+
+    <label for="id_age">Age:</label>
+    {{ form.age }}
+
+    <label for="id_email">Email:</label>
+    {{ form.email }}
+
+    <label for="id_master_average">Master average:</label>
+    {{ form.master_average }}
+
+    <label for="id_wilaya">Wilaya:</label>
+    {{ form.wilaya }}
+
+    <label>{{ form.agree_terms }} I agree to the terms and conditions</label>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>

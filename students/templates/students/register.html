@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{% static 'students/styles.css' %}">
+</head>
+<body class="form-page">
+    <div class="form-container">
+        <!-- 🏫 School Logo -->
+        <img src="{% static 'students/logo.png' %}" alt="School Logo" class="school-logo">
+
+        <!-- Title -->
+        <h1>Student Registration Form</h1>
+
+        <!-- Registration Form -->
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p class="terms">
+                <input type="checkbox" name="agree_terms" required>
+                I agree to the terms and conditions
+            </p>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
